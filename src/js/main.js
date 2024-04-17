@@ -98,10 +98,14 @@ async function deleteJob(event) {
             // Raderar specifika jobb-posten från DOM.
             event.target.parentElement.remove();
             console.log("Job deleted successfully");
+            // Skickar en alert till användaren om lyckad radering.
+            alert("Lyckad radering. Arbetet är nu borttaget från databasen!");
         
         // Felmeddelande vid specifik radering.
         } else {
             console.error("Failed to delete job, try again");
+            // Skickar en alert till användaren om misslyckad radering.
+            alert("Raderingen misslyckades. Prova igen!");
         }
     // Felmeddelande.
     } catch (error) {
@@ -109,8 +113,14 @@ async function deleteJob(event) {
     }
 }
 
-// Funktion som lägger till ett jobb vid klick på "lägg till"-knappen.
-async function addJob(event) {
+
+// Lägger till en händelselyssnare för formuläret och knappen "lägg till" om villkor uppfylls.
+// Villkor; kollar om formuläret finns på aktuell sida.
+if (document.getElementById("jobForm")) {
+    document.getElementById("jobForm").addEventListener("submit", checkInput);
+}
+
+function checkInput(event) {
     // Hanterar default för submit vid formulär.
     event.preventDefault();
 
@@ -120,6 +130,21 @@ async function addJob(event) {
     const location = document.getElementById("location").value;
     const description = document.getElementById("description").value;
 
+    // Kontroll av input.
+    if(companyname === "" || jobtitle === "" || location === "" || description === "") {
+        // Skickar en alert till användaren om att input saknas.
+        alert("Alla fält behöver fyllas i!");
+        // Koden exekveras inte vidare om input saknas.
+        return;
+    // Skickar med inputvärden till funktionen addJob.
+    } else {
+        addJob(companyname, jobtitle, location, description);
+    }
+}
+
+// Funktion som lägger till ett jobb.
+async function addJob(companyname, jobtitle, location, description) {
+    
     // Skapar ett nytt objekt med input-värden.
     const newJob = {
         companyname: companyname,
@@ -148,22 +173,19 @@ async function addJob(event) {
             // Rensar formuläret.
             document.getElementById("jobForm").reset();
             console.log("Job added successfully");
+            // Skickar en alert till användaren om lyckad lagring.
+            alert("Lyckad lagring! Arbetet finns nu i databasen!");
             // Dirigerar om till index.html efter lyckad lagring.
     	    window.location.href = 'index.html';
 
         // Felmeddelande vid lagring av jobb.
         } else {
             console.error("Failed to add job");
+            // Skickar en alert till användaren om misslyckad lagring.
+            alert("Misslyckad lagring. Prova igen!");
         }
     // Felmeddelande.
     } catch (error) {
         console.error("Error adding job:", error);
     }
-}
-
-// Lägger till en händelselyssnare för formuläret och knappen "lägg till".
-
-// Villkor; kollar om formuläret finns på aktuell sida.
-if (document.getElementById("jobForm")) {
-    document.getElementById("jobForm").addEventListener("submit", addJob);
 }
