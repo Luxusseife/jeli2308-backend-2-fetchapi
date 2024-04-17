@@ -22,7 +22,11 @@ tablinks.forEach(tablink => {
 // Funktionalitet för att hämta, radera och skapa jobb.
 
 // Funktion som kör vid sidladdning efter koll om element finns.
-window.onload = getJobs;
+window.onload = () => {
+    if (document.getElementById("jobList")) {
+        getJobs();
+    }
+}
 
 // Funktion som hämtar lagrade jobb.
 async function getJobs() {
@@ -37,6 +41,12 @@ async function getJobs() {
 
         // Hämtar ul-elementet vari datan ska skrivas ut.
         let jobListEl = document.getElementById("jobList");
+
+        // Villkor; kolla om elementet jobList finns på aktuell sida.
+        if (!jobListEl) {
+            console.error("jobList element does not exist on the page");
+            return;
+        }
 
         // Loopar genom objekt-array och skriver ut jobb-poster.
         data.forEach((job) => {
@@ -152,4 +162,8 @@ async function addJob(event) {
 }
 
 // Lägger till en händelselyssnare för formuläret och knappen "lägg till".
-document.getElementById("jobForm").addEventListener("submit", addJob);
+
+// Villkor; kollar om formuläret finns på aktuell sida.
+if (document.getElementById("jobForm")) {
+    document.getElementById("jobForm").addEventListener("submit", addJob);
+}
