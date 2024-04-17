@@ -18,6 +18,6 @@ Den här README-filen har skapats för att beskriva momentets syfte och lista pr
 7. Möjliggör utskrift av lagrade jobb på index-sidan.
 8. Möjliggör radering av enstaka jobb.
 9. Möjliggör hantering och lagring av ny formulärdata/nytt jobb.
-10. Publicera alt. gör en video-demonstration av appen.
+10. Gör en video-demonstration av appen.
 
 #### _Skapad av Jenny Lind, jeli2308_.

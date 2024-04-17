@@ -204,6 +204,7 @@ main {
     background-color: #940334;
 } 
 
+/* Brödtext på about-sidan. */
 #about-p {
     margin: 0 3rem 0 3rem;
     max-width: 60ch;

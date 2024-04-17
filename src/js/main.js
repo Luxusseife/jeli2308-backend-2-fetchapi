@@ -42,12 +42,6 @@ async function getJobs() {
         // Hämtar ul-elementet vari datan ska skrivas ut.
         let jobListEl = document.getElementById("jobList");
 
-        // Villkor; kolla om elementet jobList finns på aktuell sida.
-        if (!jobListEl) {
-            console.error("jobList element does not exist on the page");
-            return;
-        }
-
         // Loopar genom objekt-array och skriver ut jobb-poster.
         data.forEach((job) => {
             // Skapar ett listelement för varje jobb.
@@ -97,13 +91,12 @@ async function deleteJob(event) {
         if (response.ok) {
             // Raderar specifika jobb-posten från DOM.
             event.target.parentElement.remove();
-            console.log("Job deleted successfully");
+
             // Skickar en alert till användaren om lyckad radering.
             alert("Lyckad radering. Arbetet är nu borttaget från databasen!");
         
         // Felmeddelande vid specifik radering.
         } else {
-            console.error("Failed to delete job, try again");
             // Skickar en alert till användaren om misslyckad radering.
             alert("Raderingen misslyckades. Prova igen!");
         }
@@ -112,7 +105,6 @@ async function deleteJob(event) {
         console.error("Error deleting job:", error);
     }
 }
-
 
 // Lägger till en händelselyssnare för formuläret och knappen "lägg till" om villkor uppfylls.
 // Villkor; kollar om formuläret finns på aktuell sida.
@@ -136,6 +128,7 @@ function checkInput(event) {
         alert("Alla fält behöver fyllas i!");
         // Koden exekveras inte vidare om input saknas.
         return;
+
     // Skickar med inputvärden till funktionen addJob.
     } else {
         addJob(companyname, jobtitle, location, description);
@@ -170,17 +163,18 @@ async function addJob(companyname, jobtitle, location, description) {
         if (response.ok) {
             // Laddar om/uppdaterar jobblistan.
             getJobs();
+
             // Rensar formuläret.
             document.getElementById("jobForm").reset();
-            console.log("Job added successfully");
+            
             // Skickar en alert till användaren om lyckad lagring.
             alert("Lyckad lagring! Arbetet finns nu i databasen!");
+
             // Dirigerar om till index.html efter lyckad lagring.
     	    window.location.href = 'index.html';
 
         // Felmeddelande vid lagring av jobb.
         } else {
-            console.error("Failed to add job");
             // Skickar en alert till användaren om misslyckad lagring.
             alert("Misslyckad lagring. Prova igen!");
         }
