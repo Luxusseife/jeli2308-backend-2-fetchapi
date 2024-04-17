@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitt CV | Om appen</title>
+
+    <link rel="icon" href="/src/assets/favicon.ico">
+    <link rel="stylesheet" href="/src/css/main.css">
+    <script src="/src/js/main.js" type="module"></script>
+</head>
+<body>
+    <header>
+        <h1>Mitt CV</h1>
+    </header>
+
+    <main>
+        
+        <a class="tablink" href="index.html">Mina arbeten</a>
+        <a class="tablink" href="add.html">Lägg till arbete</a>
+        <a class="tablink active" href="about.html">Om appen</a>
+
+        <div class="tabcontent">
+            <h2>Om appen</h2>
+            <p id="about-p">
+                Syftet med denna webbapplikation är att en användare ska kunna lagra och visa arbeten hen haft. Under fliken
+                <a href="index.html">Mina arbeten</a> visas de arbeten användaren har lagrat och under fliken 
+                <a href="add.html">Lägg till arbete</a> finns möjlighet att lägga till nya arbeten via ett formulär. 
+                För lagring av arbeten har databasen PostgreSQL tillsammans med adminverktyget pgAdmin använts.
+                <br>
+                <br>
+                Mina slutsatser efter arbetet med detta moment är att utveckling av egna API:er i backend är en ganska trevlig
+                syssla så länge syntaxen blir rätt och det fungerar. Om det gör det så leder det till en fantastisk känsla när
+                fetchen görs och de lagrade objekten syns på skärmen! Det jag tycker varit lite knepigt är att få till "korrekta" 
+                felmeddelande på rätt plats i processen och i koden. Även om felmeddelandena möjliggör en smidigare och mer 
+                överskådlig felsökning, både för utvecklare och användare, så känner jag att jag gärna minskat på redundansen 
+                som de ger.
+            </p>
+        </div>
+    </main>
+</body>
+</html>

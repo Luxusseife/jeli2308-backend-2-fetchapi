@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitt CV | Lägg till arbete</title>
+
+    <link rel="icon" href="/src/assets/favicon.ico">
+    <link rel="stylesheet" href="/src/css/main.css">
+    <script src="/src/js/main.js" type="module"></script>
+<body>
+    <header>
+        <h1>Mitt CV</h1>
+    </header>
+
+    <main>
+        <a class="tablink" href="index.html">Mina arbeten</a>
+        <a class="tablink active" href="add.html">Lägg till arbete</a>
+        <a class="tablink" href="about.html">Om appen</a>
+        
+        <div class="tabcontent">
+            <h2>Lägg till arbete</h2>
+            <div class="form-container">
+                <form id="jobForm" method="post" action="index.html">
+                    <br>
+                    <label for="companyname">Arbetsplats:</label>
+                    <br>
+                    <input type="text" name="name" id="companyname" placeholder="Skriv arbetsplatsens namn" required>
+                    <br>
+                    <br>
+                    <label for="location">Ort:</label>
+                    <br>
+                    <input type="text" name="location" id="location" placeholder="Skriv arbetsort" required>
+                    <br>
+                    <br>
+                    <label for="jobtitle">Befattning:</label>
+                    <br>
+                    <input type="text" name="title" id="jobtitle" placeholder="Skriv arbetsroll" required>
+                    <br>
+                    <br>
+                    <label for="description">Beskrivning:</label>
+                    <br>
+                    <input type="text" name="description" id="description" placeholder="Skriv ansvar och uppgifter" required>
+                    <br>
+                    <br>
+                    <div class="button-container">
+                        <input type="submit" id="addJob" value="Lägg till">
+                        <input type="reset" id="resetForm" value="Avbryt">
+                    </div>
+            </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

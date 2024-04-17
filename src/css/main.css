@@ -1,0 +1,252 @@
+/* Återställer default-värden. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GENERELLT FÖR ALLA SIDOR. */
+
+/* Body. */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    align-items: center; 
+    justify-content: center;
+}
+
+/* Header. */
+header {
+    background-color: #4e413b;
+    color: #e9e9e9;
+    height: 125px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Style för flikar. */
+.tablink {
+    background-color: #69574f;
+    color: #e9e9e9;
+    height: 60px;
+    float: left;
+    outline: none;
+    cursor: pointer;
+    padding: 5px 15px;
+    width: 33.333%;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 2px #000000;
+}
+
+/* Hover-effekt för flikar. */
+.tablink:hover {
+    background-color: #362d29;
+}
+
+/* Style för flik-innehåll. */
+.tabcontent {
+    padding: 100px 0 50px 0;
+    height: 100%;
+}
+
+/* Visar aktiva flikens innehåll.*/
+.tabcontent:target {
+    background-color: #e9e9e9;
+    color: #362d29;
+}
+
+/* Lägger till en klass för den aktiva fliken. */
+.tablink.active {
+    background-color: #e3e1e2;
+    color: #362d29;
+    text-shadow: none;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Rubriker. */
+h1 {
+    margin: 2rem 0 0 0;
+    text-shadow: 1px 2px #000000;
+}
+
+h2 {
+    margin: 0 0 2rem 3rem;
+    font-weight: bold;
+    color: #362d29;
+}
+
+h3 {
+    margin: 0 0 1rem 0;
+    font-weight: bold;
+    color: #362d29;
+}
+
+/* Main-innehåll. */
+main {
+    border: 3px solid #4e413b;
+    background-color: #e3e1e2;
+    color: #362d29;
+    min-height: 100vh;
+    width: 100%;
+}
+
+
+/* SIDSPECIFIKA REGLER. */
+
+/* Formulär på "Lägg till kurs"-sidan. */
+#jobForm {
+    background-color: #e3e1e2;
+    color: #362d29;
+    font-weight: bold;
+    margin: 0 0 0 3rem;
+}
+
+/* Input-fält. */
+#companyname,
+#jobtitle,
+#location,
+#description {
+    width: 75%;
+    height: 2rem;
+    margin-top: 0.4rem;
+    border: 1px solid #362d29;
+    padding-left: 0.5rem;
+    font-size: 14px;
+    color: #362d29;
+    border-radius: 5px;
+}
+
+/* Spara-knapp. */
+#addJob {
+    width: 5rem;
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.65);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 2rem 0 0 0;
+    background-color: #8c9850;
+}
+
+/* Hover-effekt. */
+#addJob:hover {
+    background-color: #5e6730;
+}
+
+/* Rensa-knapp. */
+#resetForm {
+    width: 5rem;
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.65);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 2rem 0 0 2rem;
+    background-color: #b05d79;
+}
+
+/* Hover-effekt. */
+#resetForm:hover {
+    background-color: #940334;
+} 
+
+#about-p {
+    margin: 0 3rem 0 3rem;
+    max-width: 60ch;
+    line-height: 2;
+    text-align: left;
+}
+
+/* Style för skärmstorlek större än 495px. */
+@media (min-width: 496px) {
+
+    .tablink {
+        padding: 17px 15px;
+    }
+
+    .joblist-container {
+        max-width: 55ch;
+    }
+
+    .jobList-container ul {
+        margin: 0 0 0 2rem;
+    }
+} 
+
+/* Style för skärmstorlek större än 800px. */
+@media (min-width: 801px) {
+    body {
+        background-image: url("/src/assets/background.jpg");
+        background-size: cover;
+    }
+
+    header {
+        margin-top: 5rem;
+        border-top-left-radius: 15px; 
+        border-top-right-radius: 15px; 
+    }
+
+    h2 {
+        margin: 0 0 2rem 0;
+    }
+    
+    h3 {
+        margin: 0;
+    }
+    
+    main {
+        margin-bottom: 5rem;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        text-align: center;
+    }
+
+    header, main {
+        width: 50%;
+    }
+
+    .form-container {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    #jobForm {
+        margin: 0;
+        text-align: left;
+    }
+    
+    #companyname,
+    #jobtitle,
+    #location,
+    #description {
+        width: 100%;
+    }
+
+    #about-p {
+        padding: 0 2rem 0 2rem;
+        margin: 0 auto;
+    }
+}
+
+/* Style för skärmstorlek större än 1920px. */
+@media (min-width: 1921px) {
+    body {
+        font-size: larger;
+    }
+
+    a {
+        font-size: larger;
+    }
+}

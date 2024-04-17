@@ -1,0 +1,15 @@
+{
+  "name": "moment2-fetchapi",
+  "version": "1.0.0",
+  "author": "Jenny Lind",
+  "license": "ISC",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
