@@ -98,3 +98,58 @@ async function deleteJob(event) {
         console.error("Error deleting job:", error);
     }
 }
+
+// Funktion som lägger till ett jobb vid klick på "lägg till"-knappen.
+async function addJob(event) {
+    // Hanterar default för submit vid formulär.
+    event.preventDefault();
+
+    // Hämtar inputvärden för de olika formulärfälten.
+    const companyname = document.getElementById("companyname").value;
+    const jobtitle = document.getElementById("jobtitle").value;
+    const location = document.getElementById("location").value;
+    const description = document.getElementById("description").value;
+
+    // Skapar ett nytt objekt med input-värden.
+    const newJob = {
+        companyname: companyname,
+        jobtitle: jobtitle,
+        location: location,
+        description: description
+    };
+
+    // Deklarerar URL.
+    const addUrl = "http://127.0.0.1:3000/work";
+
+    // AJAX-anrop med metoden POST.
+    try {
+        const response = await fetch(addUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newJob)
+        });
+
+        // Villkor.
+        if (response.ok) {
+            // Laddar om/uppdaterar jobblistan.
+            getJobs();
+            // Rensar formuläret.
+            document.getElementById("jobForm").reset();
+            console.log("Job added successfully");
+            // Dirigerar om till index.html efter lyckad lagring.
+    	    window.location.href = 'index.html';
+
+        // Felmeddelande vid lagring av jobb.
+        } else {
+            console.error("Failed to add job");
+        }
+    // Felmeddelande.
+    } catch (error) {
+        console.error("Error adding job:", error);
+    }
+}
+
+// Lägger till en händelselyssnare för formuläret och knappen "lägg till".
+document.getElementById("jobForm").addEventListener("submit", addJob);
