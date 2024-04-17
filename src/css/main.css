@@ -99,6 +99,48 @@ main {
 
 /* SIDSPECIFIKA REGLER. */
 
+
+/* Listan på index-sidan. */
+.jobList-container {
+    margin: 2rem 0 0 0;
+}
+
+.jobList-container ul {
+    list-style-type: none;
+}
+
+#jobList li {
+    border: 1px solid #cccccc;
+    padding: 1rem;
+    border: 5px double #362d29;
+    border-radius: 10px;
+    background-color: #ffffff;
+    margin: 0 1rem 1.5rem 1rem;
+    color: #362d29;
+    line-height: 1.8;
+    max-width: 60ch;
+}
+
+/* Radera kurs-knapp. */
+.deleteJob  {
+    width: 8rem;
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.65);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 1rem 0 0 0;
+    background-color: #b05d79;
+}
+
+/* Hover-effekt. */
+.deleteJob:hover {
+    background-color: #940334;
+}
+
 /* Formulär på "Lägg till kurs"-sidan. */
 #jobForm {
     background-color: #e3e1e2;
@@ -215,6 +257,20 @@ main {
 
     header, main {
         width: 50%;
+    }
+    
+    .jobList-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .jobList-container ul {
+        margin: 0;
+    }
+
+    #jobList li {
+        text-align: left;
     }
 
     .form-container {
