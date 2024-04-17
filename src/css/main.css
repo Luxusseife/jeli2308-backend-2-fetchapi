@@ -232,7 +232,7 @@ main {
 @media (min-width: 801px) {
     body {
         background-image: url("/src/assets/background.jpg");
-        background-size: cover;
+        background-attachment: fixed;
     }
 
     header {
